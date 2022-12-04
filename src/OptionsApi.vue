@@ -1,8 +1,9 @@
+//options api is similar to the class based component in React 
 <script lang="ts">
 export default {
   data() {
     return {
-      count: 0
+      count: 100
     }
   },
   methods: {
@@ -17,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="increment">Count is: {{ count }}</button>
 </template>
 
 <style scoped>
