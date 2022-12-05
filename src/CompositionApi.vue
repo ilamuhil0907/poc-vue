@@ -182,6 +182,10 @@ onMounted(() => {
   >
     toggle disable attribute button
   </button>
+  
+  <!-- use the v-show="truthy expression" directive to adjust toggle opacity . v-if removes the element from the DOM  -->
+  <p v-if="isDisabled" >this text will only show when the button is <b style="color:green">disabled</b>. v-if directive</p>
+  <p v-else>this text will only show when the button is <b style="color:red">not disabled</b>. v-else directive</p>
   <br/>
 
   <p>Message is: {{ input.message }}</p>
