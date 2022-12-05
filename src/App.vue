@@ -28,7 +28,7 @@ const startTimer= ()=> {
 
 <template>
   <h1>Reaction Timer</h1>
-  <p>Get a score as close to 1 as possible</p>
+  <p>Get a score as close to 0 as possible</p>
   <button @click="startTimer" :disabled="state.isPlaying">Start game</button>
   <Block :delay="state.delay" @end="endGame" v-if="state.isPlaying"/>
   <Results :score="state.score" @restart-game="restart" v-if="(state.score!==0)"/>
