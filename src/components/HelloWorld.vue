@@ -11,6 +11,7 @@ defineProps<{
       This is a registered component that is globally accessible
     </h3>
   </div>
+ <div :class="$attrs.class">class passed at the component will be applied to this div</div>
 </template>
 
 <style scoped>
