@@ -1,37 +1,13 @@
 <script lang="ts" setup>
-import {reactive} from "vue"
-import Block from "./components/Block.vue"
-import Results from "./components/Results.vue";
-const state = reactive({
-  isPlaying: false,
-  delay: null as Number | null,
-  score:0
-})
-
-const endGame = (reactionTime:number) => { 
-  state.score = 1 / (reactionTime/100)
-  reactionTime = 0
-}
-
-const restart = () => {
-  state.isPlaying = false
-  state.delay = null
-  state.score =0
-}
-
-const startTimer= ()=> {
-  state.isPlaying = true
-  state.delay = Math.floor(2000 + Math.random() * 8000)
-}
 
 </script>
 
 <template>
-  <h1>Reaction Timer</h1>
-  <p>Get a score as close to 0 as possible</p>
-  <button @click="startTimer" :disabled="state.isPlaying">Start game</button>
-  <Block :delay="state.delay" @end="endGame" v-if="state.isPlaying"/>
-  <Results :score="state.score" @restart-game="restart" v-if="(state.score!==0)"/>
+  <ul>
+  <router-link to="/" class="links">Home</router-link>
+  <router-link :to="{ name:'users'}" class="links">Users</router-link>
+  </ul>
+  <router-view></router-view>
 </template>
 
 <style>
@@ -42,5 +18,22 @@ const startTimer= ()=> {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-right:2rem;
+}
+
+ul * {
+  margin-left: 1rem;
+}
+.links{
+  color: #378adc;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 </style>
